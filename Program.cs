@@ -2,9 +2,14 @@
 {
     class Program
     {
-        static void Main(string[] args)
+        async static Task Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine($"Current UTC Date and Time: {DateTime.UtcNow}");
+
+            // Initialize the MicrosoftToDoService
+            var todoService = new MicrosoftToDoService();
+            // list all task lists
+            await todoService.GetAllActiveTasksAsync();
         }
     }
 }
